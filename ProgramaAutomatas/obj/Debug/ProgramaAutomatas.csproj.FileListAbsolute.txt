@@ -1,0 +1,22 @@
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\bin\Debug\ProgramaAutomatas.exe
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\bin\Debug\ProgramaAutomatas.pdb
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.csprojResolveAssemblyReference.cache
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.MainForm.resources
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.csproj.GenerateResource.Cache
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.exe
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.pdb
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.frmAutomata.resources
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.frmAyudaAutomatas.resources
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.MasAyuda.resources
+C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.Autor.resources
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\bin\Debug\ProgramaAutomatas.exe
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\bin\Debug\ProgramaAutomatas.pdb
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.csprojResolveAssemblyReference.cache
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.Autor.resources
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.frmAyudaAutomatas.resources
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.frmAutomata.resources
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.MainForm.resources
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.MasAyuda.resources
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.csproj.GenerateResource.Cache
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.exe
+C:\Users\JoGarWeb\Documents\SharpDevelopProjects\automata-finito-deterministico-master\ProgramaAutomatas\obj\Debug\ProgramaAutomatas.pdb
