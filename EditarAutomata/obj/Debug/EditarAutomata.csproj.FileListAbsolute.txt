@@ -1,5 +1,0 @@
-C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\EditarAutomata\bin\Debug\EditarAutomata.exe
-C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\EditarAutomata\bin\Debug\EditarAutomata.pdb
-C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\EditarAutomata\obj\Debug\EditarAutomata.csprojResolveAssemblyReference.cache
-C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\EditarAutomata\obj\Debug\EditarAutomata.exe
-C:\Users\JoGarWeb\Documents\SharpDevelop Projects\ProgramaAutomatas\EditarAutomata\obj\Debug\EditarAutomata.pdb
