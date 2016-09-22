@@ -38,6 +38,7 @@ namespace ProgramaAutomatas
 			this.acercaDelAutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.rchLog = new System.Windows.Forms.RichTextBox();
 			this.lblRespuestaFinal = new System.Windows.Forms.Label();
+			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -71,7 +72,8 @@ namespace ProgramaAutomatas
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.lenguajeToolStripMenuItem,
-									this.acercaDeToolStripMenuItem});
+									this.acercaDeToolStripMenuItem,
+									this.salirToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(451, 24);
@@ -126,6 +128,13 @@ namespace ProgramaAutomatas
 			this.lblRespuestaFinal.Size = new System.Drawing.Size(426, 23);
 			this.lblRespuestaFinal.TabIndex = 9;
 			// 
+			// salirToolStripMenuItem
+			// 
+			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+			this.salirToolStripMenuItem.Text = "Salir";
+			this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +155,7 @@ namespace ProgramaAutomatas
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem acercaDelAutorToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem atributosToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
@@ -179,13 +189,16 @@ namespace ProgramaAutomatas
 				return;
 			}
 			
-			bool cadenaValida = verificandoCadenaLenguaje(tablaAutomata,txtCadenaPrincipal.Text);
+			string cadenaValida = verificandoCadenaLenguaje(tablaAutomata,txtCadenaPrincipal.Text);
 			
-			if(cadenaValida==true){
+			if(cadenaValida=="true"){
 				lblRespuestaFinal.ForeColor = System.Drawing.Color.Green;
 				lblRespuestaFinal.Text = "La cadena introducida es válida.";
-			}else{
+			}else if(cadenaValida=="novalid"){
 				lblRespuestaFinal.ForeColor = System.Drawing.Color.Red;
+				lblRespuestaFinal.Text = "La cadena introducida NO es válida.";
+			}else{
+				lblRespuestaFinal.ForeColor = System.Drawing.Color.Brown;
 				lblRespuestaFinal.Text = "La cadena no es válida o ocurrió un error. (Verifique el log).";
 			}
 						
@@ -367,8 +380,9 @@ namespace ProgramaAutomatas
 							return cadenaError;
 						}
 						try{
-							tablaDelAutomata[recorridoIzquierdo,recorridoDerecho]=Convert.ToString(cadenaTemporalDeNumeros);
-							this.rchLog.Text+= DateTime.Now + " Se agregó: '" + Convert.ToString(cadenaTemporalDeNumeros) + "' a tablaDelAutomata[" + "" +
+							int verificar = Convert.ToInt32(cadenaTemporalDeNumeros);
+							tablaDelAutomata[recorridoIzquierdo,recorridoDerecho]=Convert.ToString(verificar);
+							this.rchLog.Text+= DateTime.Now + " Se agregó: '" + Convert.ToString(verificar) + "' a tablaDelAutomata[" + "" +
 							recorridoIzquierdo + "," + recorridoDerecho + "]\n";
 						}catch(System.IndexOutOfRangeException){
 							this.rchLog.Text+= DateTime.Now + " ¡Error Desconocido!, envíando cadena de Error.\n";
@@ -392,7 +406,8 @@ namespace ProgramaAutomatas
 			
 		}
 		
-		public bool verificandoCadenaLenguaje(string[,] tablaAutomatas,string stringAEvaluar){
+		public string verificandoCadenaLenguaje(string[,] tablaAutomatas,string stringAEvaluar){
+			stringAEvaluar+="@";
 			
 			try{
 				//Abriendo los archivos necesarios
@@ -436,7 +451,7 @@ namespace ProgramaAutomatas
 					if(validacion==false){
 						this.rchLog.Text += DateTime.Now + " Algún elemento de la cadena a comparar no es válida, " +
 							"verifique el lenguaje y/o la cadena a evaluar.\n";
-						return false;
+						return "false";
 					}
 				}
 				
@@ -482,13 +497,13 @@ namespace ProgramaAutomatas
 						evaluacionDeCadenaTemporal=Convert.ToInt32(cadenaTemporalDeEstado);
 						this.rchLog.Text += DateTime.Now + " Se ha transformado '" + evaluacionDeCadenaTemporal + "' con éxito.\n";
 						//Pasando ese valor a el arreglo de strings
-						estadosFinales[contadorParaRecorrerUnArreglo]=cadenaTemporalDeEstado;
+						estadosFinales[contadorParaRecorrerUnArreglo]=Convert.ToString(evaluacionDeCadenaTemporal);
 						this.rchLog.Text += DateTime.Now + "Se ha pasado '" + cadenaTemporalDeEstado + "' a la cadena de estadoFinales[" +
 							"" + contadorParaRecorrerUnArreglo + "] con éxito.\n";
 					}catch(System.FormatException){
 						this.rchLog.Text += DateTime.Now + " La cadena '" + cadenaTemporalDeEstado + "' no es un número válido." +
 							" Revise el lenguaje del autómata. Solo debe contener números. Regresando error.\n";
-						return false;
+						return "false";
 					}
 					
 				}
@@ -501,20 +516,20 @@ namespace ProgramaAutomatas
 						if(estadosFinales[contadorParaRecorrerUnaCadena]=="0"){
 							this.rchLog.Text += DateTime.Now + "Se ha evaluado la cadena con éxito, la cadena pertenece " +
 							"al lenguaje, regresando respuesta positiva.\n";
-							return true;
+							return "true";
 						}
 					}
 					
 					this.rchLog.Text += DateTime.Now + "Se ha evaluado la cadena con éxito, la cadena NO pertenece " +
 							"al lenguaje, regresando respuesta negativa.\n";
-					return false;
+					return "novalid";
 				}
 				
 				
 				//Recorriendo el arreglo bidimensional, meter valores en delta.
 				string[] delta = new string[2];
 				int estado=1;
-				for(contadorParaRecorrerUnaCadena=0;contadorParaRecorrerUnaCadena<(cadenaAEvaluar.Length);contadorParaRecorrerUnaCadena++){
+				for(contadorParaRecorrerUnaCadena=0;contadorParaRecorrerUnaCadena<(cadenaAEvaluar.Length-1);contadorParaRecorrerUnaCadena++){
 					this.rchLog.Text += DateTime.Now + " Evaluando el caracter '" + cadenaAEvaluar[contadorParaRecorrerUnaCadena] + "'.\n";
 					//buscando caracter de la cadena a evaluar en arreglo bidimensional
 					for(contadorParaRecorrerUnArreglo=0;contadorParaRecorrerUnArreglo<derecho;contadorParaRecorrerUnArreglo++){
@@ -527,8 +542,9 @@ namespace ProgramaAutomatas
 								delta[0]=tablaAutomatas[estado,contadorParaRecorrerUnArreglo];
 							}catch(System.IndexOutOfRangeException){
 								this.rchLog.Text+= DateTime.Now + " ¡Error! No puede introducir un autómata con estados menores" +
-									" a '-1'. si quiere representar un loop, deberá ser representado con un '-1'.\n";
-								return false;
+									" a '-1'. si quiere representar un loop, deberá ser representado con un '-1' y/o no se " +
+									"pueden introducir estados mayores a los establecidos.\n";
+								return "false";
 							}
 						this.rchLog.Text += DateTime.Now + " He puesto el valor '" + delta[0] + "' en delta[0].\n";
 						estado=(Convert.ToInt32(delta[0]))+1;
@@ -543,7 +559,7 @@ namespace ProgramaAutomatas
 						this.rchLog.Text += DateTime.Now + " La cadena no es válida, ha introducido un " +
 							"carácter de más a la cadena a analizar de lo que permite el lenguaje. " +
 							"Revise su autómata introducido. Error: Delta[0]=-1.\n ";
-						return false;
+						return "false";
 					}
 				}
 				
@@ -552,19 +568,19 @@ namespace ProgramaAutomatas
 					if(estadosFinales[contadorParaRecorrerUnaCadena]==delta[0]){
 						this.rchLog.Text += DateTime.Now + " Se ha evaluado la cadena con éxito, la cadena pertenece " +
 							"al lenguaje, regresando respuesta positiva.\n";
-						return true;
+						return "true";
 					}
 				}
 				
 				this.rchLog.Text += DateTime.Now + " Se ha terminado de evaluar la cadena con éxito pero " +
 					"el autómata regresó error, regresando respuesta negativa.\n";
-				return false;
+				return "novalid";
 				
 				
 			}catch(System.IO.FileNotFoundException){
 				this.rchLog.Text+= DateTime.Now + " ¡Archivos no encontrados! Verifique el autómata " +
 					"desde la pestaña de 'Autómata'\n";
-				return false;
+				return "false";
 			}
 			//return true;
 		}
@@ -573,6 +589,11 @@ namespace ProgramaAutomatas
 		void AcercaDeToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			
+		}
+		
+		void SalirToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }
